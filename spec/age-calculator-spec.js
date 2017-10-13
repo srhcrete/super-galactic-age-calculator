@@ -1,4 +1,4 @@
-import { Age, Date, Calculator } from './../js/age-calculator.js';
+import { Age, Date } from './../js/age-calculator.js';
 var age = new Age("Name", "24");
 var date1 = new Date("1987", "09", "18");
 var date2 = new Date("2030", "09", "18");
@@ -22,6 +22,10 @@ describe('Age', function () {
 
   it('calculates age on Mars', function() {
     expect(age.ageMars("24")).toEqual(45.12);
+  });
+
+  it('calculates age on Jupiter', function() {
+    expect(age.ageJupiter("24")).toEqual(284.64);
   });
 });
 

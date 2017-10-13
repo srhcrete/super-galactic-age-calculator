@@ -25,6 +25,11 @@ export class Age {
     var marsAge = parseInt(age) * 1.88;
     return marsAge;
   }
+
+  ageJupiter(age) {
+    var jupiterAge = parseInt(age) * 11.86;
+    return jupiterAge;
+  }
 }
 
 export class Date {
@@ -34,23 +39,21 @@ export class Date {
     this.date = date;
   }
 
+  compareDates () {
+    var date1 = new Date(`${this.year}, ${this.month}, ${this.day}`);
+    var date2 = new Date(`${this.year}, ${this.month}, ${this.day}`);
+
+    var difInSeconds = function(date1, date2) {
+      var date1_ms = date1.getTime();
+      var date2_ms = date2.getTime();
+      var difference_ms = (date2ms - date1ms)/1000;
+      var seconds = Math.floor(difference_ms % 60);
+      return seconds + "seconds";
+    };
+
+  }
+
   ageYears() {
     return moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD").fromNow();
   }
 }
-
-var difInSeconds = function(date1, date2) {
-  var date1_ms = date1.getTime();
-  var date2_ms = date2.getTime();
-  var difference_ms = (date2ms - date1ms)/1000;
-  var seconds = Math.floor(difference_ms % 60);
-  return seconds + "seconds";
-};
-
-// difInYears(date1, date2) {
-//   var date1_ms = date1.getTime();
-//   var date2_ms = date2.getTime();
-//   var difference_ms = (date2ms - date1ms)/1000;
-//   var seconds = Math.floor(difference_ms % 60);
-//   return seconds + "seconds";
-// }
