@@ -10,6 +10,11 @@ export class Age {
     var secondsAge = parseInt(age) * 365 * 24 * 60 * 60;
     return secondsAge + "seconds";
   }
+
+  ageMercury(age) {
+    var mercuryAge = parseInt(age) * 24;
+    return mercuryAge;
+  }
 }
 
 export class Date {
@@ -24,17 +29,18 @@ export class Date {
   }
 }
 
-export class Calculator {
-  constructor(date1, date2) {
-    this.date1 = date1;
-    this.date2 = date2;
-}
+var difInSeconds = function(date1, date2) {
+  var date1_ms = date1.getTime();
+  var date2_ms = date2.getTime();
+  var difference_ms = (date2ms - date1ms)/1000;
+  var seconds = Math.floor(difference_ms % 60);
+  return seconds + "seconds";
+};
 
-  difInYears(date1, date2) {
-    var date1_ms = date1.getTime();
-    var date2_ms = date2.getTime();
-    var difference_ms = (date2ms - date1ms)/1000;
-    var seconds = Math.floor(difference_ms % 60);
-    return seconds + "seconds";
-  }
-}
+// difInYears(date1, date2) {
+//   var date1_ms = date1.getTime();
+//   var date2_ms = date2.getTime();
+//   var difference_ms = (date2ms - date1ms)/1000;
+//   var seconds = Math.floor(difference_ms % 60);
+//   return seconds + "seconds";
+// }
