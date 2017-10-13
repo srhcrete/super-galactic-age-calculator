@@ -12,11 +12,11 @@ _Super Galactic Age Calculator is an application that can return the users age i
 
 | Description        | Input           | Output  |
 | ------------------ |:-------------:| -----:|
-| Age in Seconds   | '24' | '756864000 seconds' |
-| Age on Mercury  | '24' | '576 years on Mercury' |
-| Life expectancy   | '24, Female, Northern America' | '57 years left on Earth' |
-| Age from birthdate  | '1987, 09, 18' | '30 Years Ago' |
-| Difference Between Two Dates in Seconds  | '1987/09/18, 2030/09/18' | '1356998400 seconds' |
+| Age in Seconds   | 24 | 756864000 seconds |
+| Age on Mercury  | 24 | 576 years on Mercury |
+| Life expectancy   | 24,  Female,  Northern America | 57 years left on Earth |
+| Age from birthdate  | 1987, 09, 18 | 30 Years Ago |
+| Difference Between Two Dates in Seconds  | 1987/09/18, 2030/09/18 | 1356998400 seconds |
 
 
 ## Setup/Installation Requirements
