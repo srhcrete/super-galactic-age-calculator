@@ -1,7 +1,9 @@
-import { Age, Date } from './../js/age-calculator.js';
+import { Age, Date, Compare } from './../js/age-calculator.js';
 var age = new Age("Name", "24");
-var date1 = new Date("1987", "09", "18");
-var date2 = new Date("2030", "09", "18");
+var birthday = new Date("1987", "09", "18");
+var date1 = "19870918";
+var date2 = "20300918";
+var difInSeconds = new Compare(date1, date2);
 
 describe('Age', function () {
   it('should have a name and an age', function() {
@@ -31,10 +33,12 @@ describe('Age', function () {
 
 describe('Date', function () {
   it('should calculate a persons age in years from birth date', function() {
-    expect(date1.ageYears()).toEqual("30 years ago");
+    expect(birthday.ageYears()).toEqual("30 years ago");
   });
+});
 
+describe('Compare', function () {
   it('should calculate the difference in seconds between two dates', function() {
-    expect(difInSeconds(date1, date2)).toEqual(378432000 + "seconds");
+    expect(difInSeconds.compareDays(date1, date2)).toEqual(15706 + "days");
   });
 });
