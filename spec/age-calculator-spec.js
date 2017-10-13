@@ -1,5 +1,6 @@
 import { Human, Date, Compare } from './../js/age-calculator.js';
 var age = new Human("Hugh Man", "24", "male", "Northern America");
+var oldie = new Human("Old Man", "90", "male", "Northern American");
 var birthday = new Date("1987", "09", "18");
 var date1 = "19870918";
 var date2 = "20300918";
@@ -32,6 +33,10 @@ describe('Human', function () {
 
   it('calculates life expentency of Human based on gender, continent, and age', function() {
     expect(age.lifeExpentancy()).toEqual(53 + " years left on Earth");
+  });
+
+  it('returns if user has surpassed their average life expectancy', function () {
+    expect(oldie.lifeExpentancy()).toEqual("you have surpassed your average life expectancy!");
   });
 });
 

@@ -16,7 +16,7 @@ export class Human {
 
   ageMercury() {
     var mercuryAge = parseInt(this.age) * 24;
-    return mercuryAge + " years  old on Mercury";
+    return mercuryAge + " years old on Mercury";
   }
 
   ageVenus() {
@@ -26,7 +26,7 @@ export class Human {
 
   ageMars() {
     var marsAge = parseInt(this.age) * 1.88;
-    return marsAge + " years  old on Mars";
+    return marsAge + " years old on Mars";
   }
 
   ageJupiter() {
@@ -66,10 +66,13 @@ export class Human {
         this.expectency = 74 - parseInt(this.age);
       }
     }
-    return this.expectency + " years left on Earth";
+
+    if (this.expectency > 0) {
+      return this.expectency + " years left on Earth";
+    } else {
+      return "you have surpassed your average life expectancy!";
+    }
   }
-
-
 }
 
 export class Date {
