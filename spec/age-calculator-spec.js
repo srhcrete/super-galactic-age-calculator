@@ -3,7 +3,7 @@ var age = new Age("Name", "24");
 var birthday = new Date("1987", "09", "18");
 var date1 = "19870918";
 var date2 = "20300918";
-var difInSeconds = new Compare(date1, date2);
+var dif = new Compare(date1, date2);
 
 describe('Age', function () {
   it('should have a name and an age', function() {
@@ -38,7 +38,11 @@ describe('Date', function () {
 });
 
 describe('Compare', function () {
+  it('should calculate the difference in days between two dates', function() {
+    expect(dif.compareDays(date1, date2)).toEqual(15706 + " days");
+  });
+
   it('should calculate the difference in seconds between two dates', function() {
-    expect(difInSeconds.compareDays(date1, date2)).toEqual(15706 + "days");
+    expect(dif.compareSeconds(date1, date2)).toEqual(376944 + " hours");
   });
 });

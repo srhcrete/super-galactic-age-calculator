@@ -51,9 +51,17 @@ export class Compare {
   }
 
   compareDays () {
-    var first = moment(`${this.date1}`, "YYYYMMDD");
-    var second = moment(`${this.date2}`, "YYYYMMDD");
-    var days = second.diff(first, "days");
-    return days + "days";
+    var date1 = moment(`${this.date1}`, "YYYYMMDD");
+    var date2 = moment(`${this.date2}`, "YYYYMMDD");
+    var days = date2.diff(date1, "days");
+    return days + " days";
+  }
+
+  compareSeconds () {
+    var date1 = moment(`${this.date1}`, "YYYYMMDD");
+    var date2 = moment(`${this.date2}`, "YYYYMMDD");
+    var days = date2.diff(date1, "days");
+    var seconds = days * 24;
+    return seconds + " hours";
   }
 }
