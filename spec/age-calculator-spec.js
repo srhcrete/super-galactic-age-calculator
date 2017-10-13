@@ -42,7 +42,15 @@ describe('Compare', function () {
     expect(dif.compareDays(date1, date2)).toEqual(15706 + " days");
   });
 
+  it('should calculate the difference in hours between two dates', function() {
+    expect(dif.compareHours(date1, date2)).toEqual(376944 + " hours");
+  });
+
+  it('should calculate the difference in minutes between two dates', function() {
+    expect(dif.compareMinutes(date1, date2)).toEqual(22616640 + " minutes");
+  });
+
   it('should calculate the difference in seconds between two dates', function() {
-    expect(dif.compareSeconds(date1, date2)).toEqual(376944 + " hours");
+    expect(dif.compareSeconds(date1, date2)).toEqual(1356998400 + " seconds");
   });
 });
