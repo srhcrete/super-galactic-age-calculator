@@ -19,6 +19,10 @@ describe('Age', function () {
   it('calculates age on Venus', function() {
     expect(age.ageVenus("24")).toEqual(1488);
   });
+
+  it('calculates age on Mars', function() {
+    expect(age.ageMars("24")).toEqual(45.12);
+  });
 });
 
 describe('Date', function () {

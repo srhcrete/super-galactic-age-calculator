@@ -20,6 +20,11 @@ export class Age {
     var venusAge = parseInt(age) * 62;
     return venusAge;
   }
+
+  ageMars(age) {
+    var marsAge = parseInt(age) * 1.88;
+    return marsAge;
+  }
 }
 
 export class Date {
