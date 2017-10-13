@@ -15,19 +15,19 @@ describe('Human', function () {
   });
 
   it('calculates age on Mercury', function() {
-    expect(age.ageMercury()).toEqual(576 + " years on Mercury");
+    expect(age.ageMercury()).toEqual(576 + " years old on Mercury");
   });
 
   it('calculates age on Venus', function() {
-    expect(age.ageVenus()).toEqual(1488 + " years on Venus");
+    expect(age.ageVenus()).toEqual(1488 + " years old on Venus");
   });
 
   it('calculates age on Mars', function() {
-    expect(age.ageMars()).toEqual(45.12 + " years on Mars");
+    expect(age.ageMars()).toEqual(45.12 + " years old on Mars");
   });
 
   it('calculates age on Jupiter', function() {
-    expect(age.ageJupiter()).toEqual(284.64 + " years on Jupiter");
+    expect(age.ageJupiter()).toEqual(284.64 + " years old on Jupiter");
   });
 
   it('calculates life expentency of Human based on gender, continent, and age', function() {

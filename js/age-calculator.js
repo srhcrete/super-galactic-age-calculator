@@ -16,22 +16,22 @@ export class Human {
 
   ageMercury() {
     var mercuryAge = parseInt(this.age) * 24;
-    return mercuryAge + " years on Mercury";
+    return mercuryAge + " years  old on Mercury";
   }
 
   ageVenus() {
     var venusAge = parseInt(this.age) * 62;
-    return venusAge + " years on Venus";
+    return venusAge + " years old on Venus";
   }
 
   ageMars() {
     var marsAge = parseInt(this.age) * 1.88;
-    return marsAge + " years on Mars";
+    return marsAge + " years  old on Mars";
   }
 
   ageJupiter() {
     var jupiterAge = parseInt(this.age) * 11.86;
-    return jupiterAge + " years on Jupiter";
+    return jupiterAge + " years old on Jupiter";
   }
 
   lifeExpentancy() {
