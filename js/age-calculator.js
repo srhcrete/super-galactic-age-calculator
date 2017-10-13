@@ -1,35 +1,75 @@
 var moment = require('moment');
 
-export class Age {
-  constructor(name, age) {
-    this.age = age;
+export class Human {
+  constructor(name, age, gender, continent) {
     this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.continent = continent;
+    this.expentency = 0;
   }
 
-  ageInSeconds(age) {
-    var secondsAge = parseInt(age) * 365 * 24 * 60 * 60;
-    return secondsAge + "seconds";
+  ageInSeconds() {
+    var secondsAge = parseInt(this.age) * 365 * 24 * 60 * 60;
+    return secondsAge + " seconds";
   }
 
-  ageMercury(age) {
-    var mercuryAge = parseInt(age) * 24;
-    return mercuryAge;
+  ageMercury() {
+    var mercuryAge = parseInt(this.age) * 24;
+    return mercuryAge + " years on Mercury";
   }
 
-  ageVenus(age) {
-    var venusAge = parseInt(age) * 62;
-    return venusAge;
+  ageVenus() {
+    var venusAge = parseInt(this.age) * 62;
+    return venusAge + " years on Venus";
   }
 
-  ageMars(age) {
-    var marsAge = parseInt(age) * 1.88;
-    return marsAge;
+  ageMars() {
+    var marsAge = parseInt(this.age) * 1.88;
+    return marsAge + " years on Mars";
   }
 
-  ageJupiter(age) {
-    var jupiterAge = parseInt(age) * 11.86;
-    return jupiterAge;
+  ageJupiter() {
+    var jupiterAge = parseInt(this.age) * 11.86;
+    return jupiterAge + " years on Jupiter";
   }
+
+  lifeExpentancy() {
+    if (this.continent == "Northern America") {
+      if (this.gender == "male") {
+        this.expectency = 77 - parseInt(this.age);
+      } else {
+        this.expectency = 81 - parseInt(this.age);
+      }
+    } else if (this.continent == "Europe") {
+      if (this.gender == "male") {
+        this.expectency = 75 - parseInt(this.age);
+      } else {
+        this.expectency = 81 - parseInt(this.age);
+      }
+    } else if (this.continent == "Oceania") {
+      if (this.gender == "male") {
+        this.expectency = 75 - parseInt(this.age);
+      } else {
+        this.expectency = 79 - parseInt(this.age);
+      }
+    } else if (this.continent == "Latin America and Caribbean") {
+      if (this.gender == "male") {
+        this.expectency = 73 - parseInt(this.age);
+      } else {
+        this.expectency = 79 - parseInt(this.age);
+      }
+    } else if (this.continent == "Asia") {
+      if (this.gender == "male") {
+        this.expectency = 71 - parseInt(this.age);
+      } else {
+        this.expectency = 74 - parseInt(this.age);
+      }
+    }
+    return this.expectency + " years left on Earth";
+  }
+
+
 }
 
 export class Date {

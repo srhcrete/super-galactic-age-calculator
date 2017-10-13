@@ -1,33 +1,37 @@
-import { Age, Date, Compare } from './../js/age-calculator.js';
-var age = new Age("Name", "24");
+import { Human, Date, Compare } from './../js/age-calculator.js';
+var age = new Human("Hugh Man", "24", "male", "Northern America");
 var birthday = new Date("1987", "09", "18");
 var date1 = "19870918";
 var date2 = "20300918";
 var dif = new Compare(date1, date2);
 
-describe('Age', function () {
+describe('Human', function () {
   it('should have a name and an age', function() {
-    expect(age.name, age.age).toEqual("Name", "24");
+    expect(age.name, age.age).toEqual("Hugh Man", "24");
   });
 
   it('calculates age in seconds', function() {
-    expect(age.ageInSeconds("24")).toEqual(756864000 + "seconds");
+    expect(age.ageInSeconds()).toEqual(756864000 + " seconds");
   });
 
   it('calculates age on Mercury', function() {
-    expect(age.ageMercury("24")).toEqual(576);
+    expect(age.ageMercury()).toEqual(576 + " years on Mercury");
   });
 
   it('calculates age on Venus', function() {
-    expect(age.ageVenus("24")).toEqual(1488);
+    expect(age.ageVenus()).toEqual(1488 + " years on Venus");
   });
 
   it('calculates age on Mars', function() {
-    expect(age.ageMars("24")).toEqual(45.12);
+    expect(age.ageMars()).toEqual(45.12 + " years on Mars");
   });
 
   it('calculates age on Jupiter', function() {
-    expect(age.ageJupiter("24")).toEqual(284.64);
+    expect(age.ageJupiter()).toEqual(284.64 + " years on Jupiter");
+  });
+
+  it('calculates life expentency of Human based on gender, continent, and age', function() {
+    expect(age.lifeExpentancy()).toEqual(53 + " years left on Earth");
   });
 });
 

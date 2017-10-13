@@ -1,4 +1,4 @@
-import { Age, Date, Compare } from './../js/age-calculator.js';
+import { Human, Date, Compare } from './../js/age-calculator.js';
 
 
 // document.getElementById("dateInput").addEventListener("change", function() {
