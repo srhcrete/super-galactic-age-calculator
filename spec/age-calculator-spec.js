@@ -1,7 +1,7 @@
 import { Human, Date, Compare } from './../js/age-calculator.js';
 let age = new Human("Hugh Man", "24", "male", "Northern America", "mercury");
 let oldie = new Human("Old Man", "90", "male", "Northern American", "earth");
-let birthday = new Date("1987", "09", "18");
+let birthday = new Date("1987", "09", "18", "mercury");
 let date1 = "19870918";
 let date2 = "20300918";
 let dif = new Compare(date1, date2);
@@ -47,6 +47,9 @@ describe('Human', function () {
 describe('Date', function () {
   it('should calculate a persons age in years from birth date', function() {
     expect(birthday.ageYears()).toEqual("30 years ago");
+  });
+  it('should calculate a persons birthdate on other planets', function() {
+    expect(birthday.galacticBirthday()).toEqual("2707-09-01");
   });
 });
 

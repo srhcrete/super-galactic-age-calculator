@@ -93,14 +93,25 @@ export class Human {
 }
 
 export class Date {
-  constructor(year, month, date) {
+  constructor(year, month, date, planet) {
     this.year = year;
     this.month = month;
     this.date = date;
+    this.planet = planet;
   }
 
   ageYears() {
     return moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD").fromNow();
+  }
+
+  galacticBirthday() {
+    let earthAge = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD").fromNow();
+    let timestamp = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD");
+    if(this.planet == "mercury") {
+      let mercuryAge = parseInt(earthAge) * 24;
+      let mercuryBirthdate = moment(timestamp).add(mercuryAge, 'years').format('YYYY-MM-DD');
+      return mercuryBirthdate;
+    }
   }
 }
 
