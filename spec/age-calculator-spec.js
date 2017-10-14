@@ -1,10 +1,10 @@
 import { Human, Date, Compare } from './../js/age-calculator.js';
-var age = new Human("Hugh Man", "24", "male", "Northern America");
-var oldie = new Human("Old Man", "90", "male", "Northern American");
-var birthday = new Date("1987", "09", "18");
-var date1 = "19870918";
-var date2 = "20300918";
-var dif = new Compare(date1, date2);
+let age = new Human("Hugh Man", "24", "male", "Northern America", "mercury");
+let oldie = new Human("Old Man", "90", "male", "Northern American", "earth");
+let birthday = new Date("1987", "09", "18");
+let date1 = "19870918";
+let date2 = "20300918";
+let dif = new Compare(date1, date2);
 
 describe('Human', function () {
   it('should have a name and an age', function() {
@@ -31,12 +31,16 @@ describe('Human', function () {
     expect(age.ageJupiter()).toEqual(284.64 + " years old on Jupiter");
   });
 
-  it('calculates life expentency of Human based on gender, continent, and age', function() {
+  it('calculates life expentancy of Human on earth based on gender, continent, and age', function() {
     expect(age.lifeExpentancy()).toEqual(53 + " years left on Earth");
   });
 
   it('returns if user has surpassed their average life expectancy', function () {
     expect(oldie.lifeExpentancy()).toEqual("you have surpassed your average life expectancy!");
+  });
+
+  it('calculates life expectancy of Human on other planets based on Earth life expectancy', function () {
+    expect(age.galacticLifeExpentancy()).toEqual(1272 + " years left on Mercury");
   });
 });
 
