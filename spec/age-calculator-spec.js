@@ -48,8 +48,11 @@ describe('Date', function () {
   it('should calculate a persons age in years from birth date', function() {
     expect(birthday.ageYears()).toEqual("30 years ago");
   });
-  it('should calculate a persons birthdate on other planets', function() {
-    expect(birthday.galacticBirthday()).toEqual("2707-09-01");
+  it('should calculate a persons  galactic birthdate', function() {
+    expect(birthday.galacticBirthday()).toEqual("09/01/2707");
+  });
+  it('should calculate a persons galactic age in dog years', function () {
+    expect(birthday.dogYears()).toEqual(5040);
   });
 });
 
