@@ -69,7 +69,7 @@ export class Human {
     }
 
     if (this.expectancy > 0) {
-      return this.expectancy + " years left on Earth";
+      return "Your estimated life expectancy is " + this.expectancy +",and you have " + (this.expectancy - this.age) + "years left on Earth";
     } else {
       return "you have surpassed your average life expectancy!";
     }

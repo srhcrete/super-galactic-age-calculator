@@ -32,7 +32,7 @@ describe('Human', function () {
   });
 
   it('calculates life expentancy of Human on earth based on gender, continent, and age', function() {
-    expect(age.lifeExpentancy()).toEqual(53 + " years left on Earth");
+    expect(age.lifeExpentancy()).toEqual("Your extimated life expectancy is " + 53 + ",and you have " + 29 + "years left on Earth");
   });
 
   it('returns if user has surpassed their average life expectancy', function () {
