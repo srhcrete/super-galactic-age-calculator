@@ -1,6 +1,12 @@
-import { Calculator, Date } from './../js/age-calculator.js';
+import { Human, Date, Compare } from './../js/age-calculator.js';
 
+$(document).ready(function() {
+  let human  = new Human();
+  let date = new Date();
+  let comparison = new Compare();
 
+  $('human-info-form').submit
+});
 // document.getElementById("dateInput").addEventListener("change", function() {
 //     var input = this.value;
 //     var dateEntered = new Date(input);

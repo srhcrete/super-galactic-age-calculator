@@ -11,23 +11,115 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var moment = require('moment');
 
-var Age = exports.Age = function () {
-  function Age(name, age) {
-    _classCallCheck(this, Age);
+var Human = exports.Human = function () {
+  function Human(name, age, gender, continent) {
+    _classCallCheck(this, Human);
 
-    this.age = age;
     this.name = name;
+    this.age = age;
+    this.gender = gender;
+    this.continent = continent;
+    this.expentency = 0;
   }
 
-  _createClass(Age, [{
+  _createClass(Human, [{
     key: "ageInSeconds",
-    value: function ageInSeconds(age) {
-      var secondsAge = parseInt(age) * 365 * 24 * 60 * 60;
-      return secondsAge + "seconds";
+    value: function ageInSeconds() {
+      var secondsAge = parseInt(this.age) * 365 * 24 * 60 * 60;
+      return secondsAge + " seconds";
+    }
+  }, {
+    key: "ageMercury",
+    value: function ageMercury() {
+      var mercuryAge = parseInt(this.age) * 24;
+      return mercuryAge + " years old on Mercury";
+    }
+  }, {
+    key: "ageVenus",
+    value: function ageVenus() {
+      var venusAge = parseInt(this.age) * 62;
+      return venusAge + " years old on Venus";
+    }
+  }, {
+    key: "ageMars",
+    value: function ageMars() {
+      var marsAge = parseInt(this.age) * 1.88;
+      return marsAge + " years old on Mars";
+    }
+  }, {
+    key: "ageJupiter",
+    value: function ageJupiter() {
+      var jupiterAge = parseInt(this.age) * 11.86;
+      return jupiterAge + " years old on Jupiter";
+    }
+  }, {
+    key: "lifeExpentancy",
+    value: function lifeExpentancy() {
+      if (this.continent == "Northern America") {
+        if (this.gender == "male") {
+          this.expectancy = 77 - parseInt(this.age);
+        } else {
+          this.expectancy = 81 - parseInt(this.age);
+        }
+      } else if (this.continent == "Europe") {
+        if (this.gender == "male") {
+          this.expectancy = 75 - parseInt(this.age);
+        } else {
+          this.expectancy = 81 - parseInt(this.age);
+        }
+      } else if (this.continent == "Oceania") {
+        if (this.gender == "male") {
+          this.expectancy = 75 - parseInt(this.age);
+        } else {
+          this.expectancy = 79 - parseInt(this.age);
+        }
+      } else if (this.continent == "Latin America and Caribbean") {
+        if (this.gender == "male") {
+          this.expectancy = 73 - parseInt(this.age);
+        } else {
+          this.expectancy = 79 - parseInt(this.age);
+        }
+      } else if (this.continent == "Asia") {
+        if (this.gender == "male") {
+          this.expectancy = 71 - parseInt(this.age);
+        } else {
+          this.expectancy = 74 - parseInt(this.age);
+        }
+      }
+
+      if (this.expectancy > 0) {
+        return "Your estimated life expectancy is " + this.expectancy + ",and you have " + (this.expectancy - this.age) + "years left on Earth";
+      } else {
+        return "you have surpassed your average life expectancy!";
+      }
+    }
+  }, {
+    key: "marsLifeExpentancy",
+    value: function marsLifeExpentancy() {
+      var marsExpectancy = this.expentancy * 1.88;
+      return marsExpectancy + " years left on Mars";
+    }
+  }, {
+    key: "jupiterLifeExpectancy",
+    value: function jupiterLifeExpectancy() {
+      var jupiterExpectancy = this.expectancy * 11.86;
+      return jupiterExpectancy + " years left on Jupiter";
+    }
+  }, {
+    key: "venusLifeExpectancy",
+    value: function venusLifeExpectancy() {
+      var venusExpectancy = this.expectancy * 62;
+      return venusExpectancy + " years left on Venus";
+    }
+  }, {
+    key: "mercuryLifeExpectancy",
+    value: function mercuryLifeExpectancy() {
+      var mercuryExpectancy = this.expectancy * 24;
+      return mercuryExpectancy + " years left on Mercury";
     }
   }]);
 
-  return Age;
+  return Human;
 }();
 
 var Date = exports.Date = function () {
@@ -44,31 +136,132 @@ var Date = exports.Date = function () {
     value: function ageYears() {
       return moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
     }
+  }, {
+    key: "mercuryBirthday",
+    value: function mercuryBirthday() {
+      var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
+      var timestamp = moment("" + this.year + this.month + this.day, "YYYYMMDD");
+      var mercuryAge = parseInt(earthAge) * 24;
+      var mercuryBirthdate = moment(timestamp).add(mercuryAge, 'years').format('MM/DD/YYYY');
+      return mercuryBirthdate;
+    }
+  }, {
+    key: "venusBirthday",
+    value: function venusBirthday() {
+      var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
+      var timestamp = moment("" + this.year + this.month + this.day, "YYYYMMDD");
+      var venusAge = parseInt(earthAge) * 62;
+      var venusBirthdate = moment(timestamp).add(venusAge, 'years').format('MM/DD/YYYY');
+      return venusBirthdate;
+    }
+  }, {
+    key: "marsBirthday",
+    value: function marsBirthday() {
+      var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
+      var timestamp = moment("" + this.year + this.month + this.day, "YYYYMMDD");
+      var marsAge = parseInt(earthAge) * 1.88;
+      var marsBirthdate = moment(timestamp).add(marsAge, 'years').format('MM/DD/YYYY');
+      return marsBirthdate;
+    }
+  }, {
+    key: "jupiterBirthday",
+    value: function jupiterBirthday() {
+      var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
+      var timestamp = moment("" + this.year + this.month + this.day, "YYYYMMDD");
+      var jupiterAge = parseInt(earthAge) * 11.86;
+      var jupiterBirthdate = moment(timestamp).add(jupiterAge, 'years').format('MM/DD/YYYY');
+      return jupiterBirthdate;
+    }
+  }, {
+    key: "dogYears",
+    value: function dogYears() {
+      var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
+      var dogYearsAge = parseInt(earthAge) * 7;
+      return dogYearsAge;
+    }
+  }, {
+    key: "mercuryDogYears",
+    value: function mercuryDogYears() {
+      var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
+      var dogYearsAge = parseInt(earthAge) * 7;
+      var dogYearsMercury = dogYearsAge * 24;
+      return dogYearsMercury;
+    }
+  }, {
+    key: "venusDogYears",
+    value: function venusDogYears() {
+      var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
+      var dogYearsAge = parseInt(earthAge) * 7;
+      var dogYearsVenus = dogYearsAge * 62;
+      return dogYearsVenus;
+    }
+  }, {
+    key: "marsDogYears",
+    value: function marsDogYears() {
+      var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
+      var dogYearsAge = parseInt(earthAge) * 7;
+      var dogYearsMars = dogYearsAge * 1.88;
+      return dogYearsMars;
+    }
+  }, {
+    key: "jupiterDogYears",
+    value: function jupiterDogYears() {
+      var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
+      var dogYearsAge = parseInt(earthAge) * 7;
+      var dogYearsJupiter = dogYearsAge * 11.86;
+      return dogYearsJupiter;
+    }
   }]);
 
   return Date;
 }();
 
-var Calculator = exports.Calculator = function () {
-  function Calculator(date1, date2) {
-    _classCallCheck(this, Calculator);
+var Compare = exports.Compare = function () {
+  function Compare(date1, date2) {
+    _classCallCheck(this, Compare);
 
     this.date1 = date1;
     this.date2 = date2;
   }
 
-  _createClass(Calculator, [{
-    key: "difInYears",
-    value: function difInYears(date1, date2) {
-      var date1_ms = date1.getTime();
-      var date2_ms = date2.getTime();
-      var difference_ms = (date2ms - date1ms) / 1000;
-      var seconds = Math.floor(difference_ms % 60);
-      return seconds + "seconds";
+  _createClass(Compare, [{
+    key: "compareDays",
+    value: function compareDays() {
+      var date1 = moment("" + this.date1, "YYYYMMDD");
+      var date2 = moment("" + this.date2, "YYYYMMDD");
+      var days = date2.diff(date1, "days");
+      return days + " days";
+    }
+  }, {
+    key: "compareHours",
+    value: function compareHours() {
+      var date1 = moment("" + this.date1, "YYYYMMDD");
+      var date2 = moment("" + this.date2, "YYYYMMDD");
+      var days = date2.diff(date1, "days");
+      var hours = days * 24;
+      return hours + " hours";
+    }
+  }, {
+    key: "compareMinutes",
+    value: function compareMinutes() {
+      var date1 = moment("" + this.date1, "YYYYMMDD");
+      var date2 = moment("" + this.date2, "YYYYMMDD");
+      var days = date2.diff(date1, "days");
+      var minutes = days * 24 * 60;
+      return minutes + " minutes";
+    }
+  }, {
+    key: "compareSeconds",
+    value: function compareSeconds() {
+      var date1 = moment("" + this.date1, "YYYYMMDD");
+      var date2 = moment("" + this.date2, "YYYYMMDD");
+      var days = date2.diff(date1, "days");
+      var seconds = days * 24 * 60 * 60;
+      return seconds + " seconds";
     }
   }]);
 
-  return Calculator;
+  return Compare;
 }();
 
 },{"moment":2}],2:[function(require,module,exports){
@@ -4591,5 +4784,19 @@ return hooks;
 'use strict';
 
 var _ageCalculator = require('./../js/age-calculator.js');
+
+$(document).ready(function () {
+  var human = new _ageCalculator.Human();
+  var date = new _ageCalculator.Date();
+  var comparison = new _ageCalculator.Compare();
+
+  $('human-info-form').submit;
+});
+// document.getElementById("dateInput").addEventListener("change", function() {
+//     var input = this.value;
+//     var dateEntered = new Date(input);
+//     console.log(input); //e.g. 2015-11-13
+//     console.log(dateEntered); //e.g. Fri Nov 13 2015 00:00:00 GMT+0000 (GMT Standard Time)
+// });
 
 },{"./../js/age-calculator.js":1}]},{},[3]);

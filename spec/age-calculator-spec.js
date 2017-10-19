@@ -1,7 +1,7 @@
 import { Human, Date, Compare } from './../js/age-calculator.js';
-let age = new Human("Hugh Man", "24", "male", "Northern America", "mercury");
-let oldie = new Human("Old Man", "90", "male", "Northern American", "earth");
-let birthday = new Date("1987", "09", "18", "mercury");
+let age = new Human("Hugh Man", "24", "male", "Northern America");
+let oldie = new Human("Old Man", "90", "male", "Northern American");
+let birthday = new Date("1987", "09", "18");
 let date1 = "19870918";
 let date2 = "20300918";
 let dif = new Compare(date1, date2);
