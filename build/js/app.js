@@ -19,7 +19,7 @@ var Human = exports.Human = function () {
     this.age = age;
     this.gender = gender;
     this.continent = continent;
-    this.expentency = 0;
+    this.expectancy = 0;
   }
 
   _createClass(Human, [{
@@ -53,50 +53,47 @@ var Human = exports.Human = function () {
       return jupiterAge + " years old on Jupiter";
     }
   }, {
-    key: "lifeExpentancy",
-    value: function lifeExpentancy() {
-      if (this.continent == "Northern America") {
-        if (this.gender == "male") {
-          this.expectancy = 77 - parseInt(this.age);
+    key: "lifeExpectancy",
+    value: function lifeExpectancy() {
+      var expectancy = this.expectancy;
+      if (this.continent === "Northern America") {
+        if (this.gender === "male") {
+          expectancy = 77 - parseInt(this.age);
         } else {
-          this.expectancy = 81 - parseInt(this.age);
+          expectancy = 81 - parseInt(this.age);
         }
-      } else if (this.continent == "Europe") {
-        if (this.gender == "male") {
-          this.expectancy = 75 - parseInt(this.age);
+      } else if (this.continent === "Europe") {
+        if (this.gender === "male") {
+          expectancy = 75 - parseInt(this.age);
         } else {
-          this.expectancy = 81 - parseInt(this.age);
+          expectancy = 81 - parseInt(this.age);
         }
-      } else if (this.continent == "Oceania") {
-        if (this.gender == "male") {
-          this.expectancy = 75 - parseInt(this.age);
+      } else if (this.continent === "Oceania") {
+        if (this.gender === "male") {
+          expectancy = 75 - parseInt(this.age);
         } else {
-          this.expectancy = 79 - parseInt(this.age);
+          expectancy = 79 - parseInt(this.age);
         }
-      } else if (this.continent == "Latin America and Caribbean") {
-        if (this.gender == "male") {
-          this.expectancy = 73 - parseInt(this.age);
+      } else if (this.continent === "Latin America and Caribbean") {
+        if (this.gender === "male") {
+          expectancy = 73 - parseInt(this.age);
         } else {
-          this.expectancy = 79 - parseInt(this.age);
+          expectancy = 79 - parseInt(this.age);
         }
-      } else if (this.continent == "Asia") {
-        if (this.gender == "male") {
-          this.expectancy = 71 - parseInt(this.age);
+      } else if (this.continent === "Asia") {
+        if (this.gender === "male") {
+          expectancy = 71 - parseInt(this.age);
         } else {
-          this.expectancy = 74 - parseInt(this.age);
+          expectancy = 74 - parseInt(this.age);
         }
       }
-
-      if (this.expectancy > 0) {
-        return "Your estimated life expectancy is " + this.expectancy + ",and you have " + (this.expectancy - this.age) + "years left on Earth";
-      } else {
-        return "you have surpassed your average life expectancy!";
-      }
+      this.expectancy = expectancy;
+      return expectancy;
     }
   }, {
-    key: "marsLifeExpentancy",
-    value: function marsLifeExpentancy() {
-      var marsExpectancy = this.expentancy * 1.88;
+    key: "marsLifeExpectancy",
+    value: function marsLifeExpectancy() {
+      var marsExpectancy = this.expectancy * 1.88;
       return marsExpectancy + " years left on Mars";
     }
   }, {
@@ -4786,17 +4783,38 @@ return hooks;
 var _ageCalculator = require('./../js/age-calculator.js');
 
 $(document).ready(function () {
-  var human = new _ageCalculator.Human();
-  var date = new _ageCalculator.Date();
-  var comparison = new _ageCalculator.Compare();
-
-  $('human-info-form').submit;
+  $('#human-info-form').submit(function (event) {
+    event.preventDefault();
+    var name = $('#name').val();
+    var age = $('#age').val();
+    var gender = $('#gender').val();
+    var continent = $('#continent').val();
+    var human = new _ageCalculator.Human(name, age, gender, continent);
+    console.log(human);
+    var galacticAgeArr = [];
+    var expectancyArr = [];
+    var ageSeconds = human.ageInSeconds();
+    var ageMercury = human.ageMercury();
+    var ageVenus = human.ageVenus();
+    var ageMars = human.ageMars();
+    var ageJupiter = human.ageJupiter();
+    var lifeExpectancy = human.lifeExpectancy();
+    console.log(lifeExpectancy);
+    var marsExpectancy = human.marsLifeExpectancy();
+    var mercuryExpectancy = human.mercuryLifeExpectancy();
+    var venusExpectancy = human.venusLifeExpectancy();
+    var jupiterExpectancy = human.jupiterLifeExpectancy();
+    galacticAgeArr.push(ageSeconds, ageMercury, ageVenus, ageMars, ageJupiter);
+    expectancyArr.push(lifeExpectancy, marsExpectancy, mercuryExpectancy, venusExpectancy, jupiterExpectancy);
+    console.log(galacticAgeArr);
+    console.log(expectancyArr);
+    galacticAgeArr.forEach(function (stat) {
+      $('#galactic-age').append('<li>' + stat + '</li>');
+    });
+    expectancyArr.forEach(function (age) {
+      $('#life-expectancy').append('<li>' + age + '</li>');
+    });
+  });
 });
-// document.getElementById("dateInput").addEventListener("change", function() {
-//     var input = this.value;
-//     var dateEntered = new Date(input);
-//     console.log(input); //e.g. 2015-11-13
-//     console.log(dateEntered); //e.g. Fri Nov 13 2015 00:00:00 GMT+0000 (GMT Standard Time)
-// });
 
 },{"./../js/age-calculator.js":1}]},{},[3]);

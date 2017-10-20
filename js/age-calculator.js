@@ -6,7 +6,7 @@ export class Human {
     this.age = age;
     this.gender = gender;
     this.continent = continent;
-    this.expentency = 0;
+    this.expectancy = 0;
   }
 
   ageInSeconds() {
@@ -34,48 +34,45 @@ export class Human {
     return jupiterAge + " years old on Jupiter";
   }
 
-  lifeExpentancy() {
-    if (this.continent == "Northern America") {
-      if (this.gender == "male") {
-        this.expectancy = 77 - parseInt(this.age);
+  lifeExpectancy() {
+    let expectancy = this.expectancy;
+    if (this.continent === "Northern America") {
+      if (this.gender === "male") {
+        expectancy = 77 - parseInt(this.age);
       } else {
-        this.expectancy = 81 - parseInt(this.age);
+        expectancy = 81 - parseInt(this.age);
       }
-    } else if (this.continent == "Europe") {
-      if (this.gender == "male") {
-        this.expectancy = 75 - parseInt(this.age);
+    } else if (this.continent === "Europe") {
+      if (this.gender === "male") {
+        expectancy = 75 - parseInt(this.age);
       } else {
-        this.expectancy = 81 - parseInt(this.age);
+        expectancy = 81 - parseInt(this.age);
       }
-    } else if (this.continent == "Oceania") {
-      if (this.gender == "male") {
-        this.expectancy = 75 - parseInt(this.age);
+    } else if (this.continent === "Oceania") {
+      if (this.gender === "male") {
+        expectancy = 75 - parseInt(this.age);
       } else {
-        this.expectancy = 79 - parseInt(this.age);
+        expectancy = 79 - parseInt(this.age);
       }
-    } else if (this.continent == "Latin America and Caribbean") {
-      if (this.gender == "male") {
-        this.expectancy = 73 - parseInt(this.age);
+    } else if (this.continent === "Latin America and Caribbean") {
+      if (this.gender === "male") {
+        expectancy = 73 - parseInt(this.age);
       } else {
-        this.expectancy = 79 - parseInt(this.age);
+        expectancy = 79 - parseInt(this.age);
       }
-    } else if (this.continent == "Asia") {
-      if (this.gender == "male") {
-        this.expectancy = 71 - parseInt(this.age);
+    } else if (this.continent === "Asia") {
+      if (this.gender === "male") {
+        expectancy = 71 - parseInt(this.age);
       } else {
-        this.expectancy = 74 - parseInt(this.age);
+        expectancy = 74 - parseInt(this.age);
       }
     }
-
-    if (this.expectancy > 0) {
-      return "Your estimated life expectancy is " + this.expectancy +",and you have " + (this.expectancy - this.age) + "years left on Earth";
-    } else {
-      return "you have surpassed your average life expectancy!";
-    }
+    this.expectancy = expectancy;
+    return expectancy;
   }
 
-  marsLifeExpentancy() {
-    let marsExpectancy = this.expentancy * 1.88;
+  marsLifeExpectancy() {
+    let marsExpectancy = this.expectancy * 1.88;
     return marsExpectancy + " years left on Mars";
   }
   jupiterLifeExpectancy () {
