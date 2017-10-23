@@ -77,25 +77,25 @@ var Human = exports.Human = function () {
   }, {
     key: "marsLifeExpectancy",
     value: function marsLifeExpectancy() {
-      var marsExpectancy = this.expectancy * 1.88;
+      var marsExpectancy = this.expectancy / 1.88;
       return marsExpectancy.toFixed(1) + " years left on Mars";
     }
   }, {
     key: "jupiterLifeExpectancy",
     value: function jupiterLifeExpectancy() {
-      var jupiterExpectancy = this.expectancy * 11.86;
+      var jupiterExpectancy = this.expectancy / 11.86;
       return jupiterExpectancy.toFixed(1) + " years left on Jupiter";
     }
   }, {
     key: "venusLifeExpectancy",
     value: function venusLifeExpectancy() {
-      var venusExpectancy = this.expectancy * 62;
+      var venusExpectancy = this.expectancy * 1.62;
       return venusExpectancy.toFixed(1) + " years left on Venus";
     }
   }, {
     key: "mercuryLifeExpectancy",
     value: function mercuryLifeExpectancy() {
-      var mercuryExpectancy = this.expectancy * 24;
+      var mercuryExpectancy = this.expectancy * 4.14;
       return mercuryExpectancy.toFixed(1) + " years left on Mercury";
     }
   }]);
@@ -122,7 +122,7 @@ var Date = exports.Date = function () {
     value: function mercuryBirthday() {
       var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
       var timestamp = moment("" + this.year + this.month + this.day, "YYYYMMDD");
-      var mercuryAge = parseInt(earthAge) * 24;
+      var mercuryAge = parseInt(earthAge) * 4.14;
       var mercuryBirthdate = moment(timestamp).add(mercuryAge, 'years').format('MM/DD/YYYY');
       return mercuryBirthdate;
     }
@@ -131,7 +131,7 @@ var Date = exports.Date = function () {
     value: function venusBirthday() {
       var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
       var timestamp = moment("" + this.year + this.month + this.day, "YYYYMMDD");
-      var venusAge = parseInt(earthAge) * 62;
+      var venusAge = parseInt(earthAge) * 1.62;
       var venusBirthdate = moment(timestamp).add(venusAge, 'years').format('MM/DD/YYYY');
       return venusBirthdate;
     }
@@ -140,7 +140,7 @@ var Date = exports.Date = function () {
     value: function marsBirthday() {
       var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
       var timestamp = moment("" + this.year + this.month + this.day, "YYYYMMDD");
-      var marsAge = parseInt(earthAge) * 1.88;
+      var marsAge = parseInt(earthAge) / 1.88;
       var marsBirthdate = moment(timestamp).add(marsAge, 'years').format('MM/DD/YYYY');
       return marsBirthdate;
     }
@@ -149,7 +149,7 @@ var Date = exports.Date = function () {
     value: function jupiterBirthday() {
       var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
       var timestamp = moment("" + this.year + this.month + this.day, "YYYYMMDD");
-      var jupiterAge = parseInt(earthAge) * 11.86;
+      var jupiterAge = parseInt(earthAge) / 11.86;
       var jupiterBirthdate = moment(timestamp).add(jupiterAge, 'years').format('MM/DD/YYYY');
       return jupiterBirthdate;
     }
@@ -165,7 +165,7 @@ var Date = exports.Date = function () {
     value: function mercuryDogYears() {
       var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
       var dogYearsAge = parseInt(earthAge) * 7;
-      var dogYearsMercury = dogYearsAge * 24;
+      var dogYearsMercury = dogYearsAge * 4.14;
       return dogYearsMercury;
     }
   }, {
@@ -173,7 +173,7 @@ var Date = exports.Date = function () {
     value: function venusDogYears() {
       var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
       var dogYearsAge = parseInt(earthAge) * 7;
-      var dogYearsVenus = dogYearsAge * 62;
+      var dogYearsVenus = dogYearsAge * 1.62;
       return dogYearsVenus;
     }
   }, {
@@ -181,7 +181,7 @@ var Date = exports.Date = function () {
     value: function marsDogYears() {
       var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
       var dogYearsAge = parseInt(earthAge) * 7;
-      var dogYearsMars = dogYearsAge * 1.88;
+      var dogYearsMars = dogYearsAge / 1.88;
       return dogYearsMars;
     }
   }, {
@@ -189,7 +189,7 @@ var Date = exports.Date = function () {
     value: function jupiterDogYears() {
       var earthAge = moment("" + this.year + this.month + this.day, "YYYYMMDD").fromNow();
       var dogYearsAge = parseInt(earthAge) * 7;
-      var dogYearsJupiter = dogYearsAge * 11.86;
+      var dogYearsJupiter = dogYearsAge / 11.86;
       return dogYearsJupiter;
     }
   }]);
@@ -4797,7 +4797,37 @@ $(document).ready(function () {
     });
   });
 
-  $('birthday-form').submit(function () {});
+  $('#birthday-form').submit(function () {
+    event.preventDefault();
+    var birthdayArr = [];
+    var dogYearsArr = [];
+    var year = $('#year').val();
+    var month = $('#month').val();
+    var day = $('#day').val();
+    var date = new _ageCalculator.Date(year, month, day);
+    console.log(date);
+    var ageInYears = date.ageYears();
+    var mercuryBirthday = date.mercuryBirthday();
+    var venusBirthday = date.venusBirthday();
+    var marsBirthday = date.marsBirthday();
+    var jupiterBirthday = date.jupiterBirthday();
+    var dogYears = date.dogYears();
+    var mercuryDogYears = date.mercuryDogYears();
+    var venusDogYears = date.venusDogYears();
+    var marsDogYears = date.marsDogYears();
+    var jupiterDogYears = date.jupiterDogYears();
+    birthdayArr.push(mercuryBirthday, venusBirthday, marsBirthday, jupiterBirthday);
+    dogYearsArr.push(dogYears, mercuryDogYears, venusDogYears, marsDogYears, jupiterDogYears);
+    console.log(birthdayArr);
+    console.log(dogYearsArr);
+    $('#age-in-years').append('<li>You were born ' + ageInYears + '</li>');
+    birthdayArr.forEach(function (birthday) {
+      $('#galactic-birthday').append('<li>' + birthday + '</li>');
+    });
+    dogYearsArr.forEach(function (age) {
+      $('#dog-years').append('<li>' + age + '</li>');
+    });
+  });
 });
 
 },{"./../js/age-calculator.js":1}]},{},[3]);

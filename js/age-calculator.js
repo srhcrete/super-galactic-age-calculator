@@ -56,19 +56,19 @@ export class Human {
   }
 
   marsLifeExpectancy() {
-    let marsExpectancy = this.expectancy * 1.88;
+    let marsExpectancy = this.expectancy / 1.88;
     return marsExpectancy.toFixed(1) + " years left on Mars";
   }
   jupiterLifeExpectancy () {
-    let jupiterExpectancy = this.expectancy * 11.86;
+    let jupiterExpectancy = this.expectancy / 11.86;
     return jupiterExpectancy.toFixed(1) + " years left on Jupiter";
   }
   venusLifeExpectancy() {
-    let venusExpectancy = this.expectancy * 62;
+    let venusExpectancy = this.expectancy * 1.62;
     return venusExpectancy.toFixed(1) + " years left on Venus";
   }
   mercuryLifeExpectancy() {
-    let mercuryExpectancy = this.expectancy * 24;
+    let mercuryExpectancy = this.expectancy * 4.14;
     return mercuryExpectancy.toFixed(1) + " years left on Mercury";
   }
 }
@@ -87,7 +87,7 @@ export class Date {
   mercuryBirthday() {
     let earthAge = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD").fromNow();
     let timestamp = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD");
-    let mercuryAge = parseInt(earthAge) * 24;
+    let mercuryAge = parseInt(earthAge) * 4.14;
     let mercuryBirthdate = moment(timestamp).add(mercuryAge, 'years').format('MM/DD/YYYY');
     return mercuryBirthdate;
   }
@@ -95,7 +95,7 @@ export class Date {
   venusBirthday() {
     let earthAge = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD").fromNow();
     let timestamp = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD");
-    let venusAge = parseInt(earthAge) * 62;
+    let venusAge = parseInt(earthAge) * 1.62;
     let venusBirthdate = moment(timestamp).add(venusAge, 'years').format('MM/DD/YYYY');
     return venusBirthdate;
   }
@@ -103,7 +103,7 @@ export class Date {
   marsBirthday() {
     let earthAge = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD").fromNow();
     let timestamp = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD");
-    let marsAge = parseInt(earthAge) * 1.88;
+    let marsAge = parseInt(earthAge) / 1.88;
     let marsBirthdate = moment(timestamp).add(marsAge, 'years').format('MM/DD/YYYY');
     return marsBirthdate;
   }
@@ -111,7 +111,7 @@ export class Date {
   jupiterBirthday() {
     let earthAge = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD").fromNow();
     let timestamp = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD");
-    let jupiterAge = parseInt(earthAge) * 11.86;
+    let jupiterAge = parseInt(earthAge) / 11.86;
     let jupiterBirthdate = moment(timestamp).add(jupiterAge, 'years').format('MM/DD/YYYY');
     return jupiterBirthdate;
   }
@@ -125,28 +125,28 @@ export class Date {
   mercuryDogYears() {
     let earthAge = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD").fromNow();
     let dogYearsAge = parseInt(earthAge) * 7;
-    let dogYearsMercury = dogYearsAge * 24;
+    let dogYearsMercury = dogYearsAge * 4.14;
     return dogYearsMercury;
   }
 
   venusDogYears() {
     let earthAge = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD").fromNow();
     let dogYearsAge = parseInt(earthAge) * 7;
-    let dogYearsVenus = dogYearsAge * 62;
+    let dogYearsVenus = dogYearsAge * 1.62;
     return dogYearsVenus;
   }
 
   marsDogYears() {
     let earthAge = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD").fromNow();
     let dogYearsAge = parseInt(earthAge) * 7;
-    let dogYearsMars = dogYearsAge * 1.88;
+    let dogYearsMars = dogYearsAge / 1.88;
     return dogYearsMars;
   }
 
   jupiterDogYears() {
     let earthAge = moment(`${this.year}${this.month}${this.day}`, "YYYYMMDD").fromNow();
     let dogYearsAge = parseInt(earthAge) * 7;
-    let dogYearsJupiter = dogYearsAge * 11.86;
+    let dogYearsJupiter = dogYearsAge / 11.86;
     return dogYearsJupiter;
   }
 }

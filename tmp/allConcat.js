@@ -31,7 +31,35 @@ $(document).ready(function() {
     });
   });
 
-  $('birthday-form').submit(function() {
-
+  $('#birthday-form').submit(function() {
+    event.preventDefault();
+    let birthdayArr = [];
+    let dogYearsArr = [];
+    let year = $('#year').val();
+    let month = $('#month').val();
+    let day = $('#day').val();
+    let date = new Date(year, month, day);
+    console.log(date);
+    let ageInYears = date.ageYears();
+    let mercuryBirthday = date.mercuryBirthday();
+    let venusBirthday = date.venusBirthday();
+    let marsBirthday = date.marsBirthday();
+    let jupiterBirthday = date.jupiterBirthday();
+    let dogYears = date.dogYears();
+    let mercuryDogYears = date.mercuryDogYears();
+    let venusDogYears = date.venusDogYears();
+    let marsDogYears = date.marsDogYears();
+    let jupiterDogYears = date.jupiterDogYears();
+    birthdayArr.push(mercuryBirthday, venusBirthday, marsBirthday, jupiterBirthday);
+    dogYearsArr.push(dogYears, mercuryDogYears, venusDogYears, marsDogYears, jupiterDogYears);
+    console.log(birthdayArr);
+    console.log(dogYearsArr);
+    $('#age-in-years').append('<li>You were born ' + ageInYears + '</li>');
+    birthdayArr.forEach(function(birthday) {
+      $('#galactic-birthday').append('<li>' + birthday + '</li>');
+    });
+    dogYearsArr.forEach(function(age) {
+      $('#dog-years').append('<li>' + age + '</li>');
+    });
   });
 });
