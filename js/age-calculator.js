@@ -15,77 +15,61 @@ export class Human {
   }
 
   ageMercury() {
-    let mercuryAge = parseInt(this.age) * 24;
-    return mercuryAge + " years old on Mercury";
+    let mercuryAge = parseInt(this.age) * 4.14;
+    return mercuryAge.toFixed(1) + " years old on Mercury";
   }
 
   ageVenus() {
-    let venusAge = parseInt(this.age) * 62;
-    return venusAge + " years old on Venus";
+    let venusAge = parseInt(this.age) * 1.62;
+    return venusAge.toFixed(1) + " years old on Venus";
   }
 
   ageMars() {
-    let marsAge = parseInt(this.age) * 1.88;
-    return marsAge + " years old on Mars";
+    let marsAge = parseInt(this.age) / 1.88;
+    return marsAge.toFixed(1) + " years old on Mars";
   }
 
   ageJupiter() {
-    let jupiterAge = parseInt(this.age) * 11.86;
-    return jupiterAge + " years old on Jupiter";
+    let jupiterAge = parseInt(this.age) / 11.86;
+    return jupiterAge.toFixed(1) + " years old on Jupiter";
   }
 
   lifeExpectancy() {
     let expectancy = this.expectancy;
-    if (this.continent === "Northern America") {
-      if (this.gender === "male") {
-        expectancy = 77 - parseInt(this.age);
-      } else {
-        expectancy = 81 - parseInt(this.age);
-      }
-    } else if (this.continent === "Europe") {
-      if (this.gender === "male") {
-        expectancy = 75 - parseInt(this.age);
-      } else {
-        expectancy = 81 - parseInt(this.age);
-      }
-    } else if (this.continent === "Oceania") {
-      if (this.gender === "male") {
-        expectancy = 75 - parseInt(this.age);
-      } else {
-        expectancy = 79 - parseInt(this.age);
-      }
-    } else if (this.continent === "Latin America and Caribbean") {
-      if (this.gender === "male") {
-        expectancy = 73 - parseInt(this.age);
-      } else {
-        expectancy = 79 - parseInt(this.age);
-      }
-    } else if (this.continent === "Asia") {
-      if (this.gender === "male") {
+    if (this.continent === "Northern America" && this.gender === "male") {
+      expectancy = 77 - parseInt(this.age);
+    } else if (this.continent === "Northern America" && this.gender === "female" || this.continent === "Europe" && this.gender === "female") {
+      expectancy = 81 - parseInt(this.age);
+    } else if (this.continent === "Europe" && this.gender === "male" || this.continent === "Oceania" && this.gender === "male") {
+      expectancy = 75 - parseInt(this.age);
+    } else if (this.continent === "Latin America and Caribbean" && this.gender === "male") {
+      expectancy = 73 - parseInt(this.age);
+    } else if (this.continent === "Latin America and Caribbean" && this.gender === "female" || this.continent === "Oceania" && this.gender === "female") {
+      expectancy = 79 - parseInt(this.age);
+    } else if (this.continent === "Asia" && this.age === "male") {
         expectancy = 71 - parseInt(this.age);
-      } else {
+    } else {
         expectancy = 74 - parseInt(this.age);
-      }
     }
     this.expectancy = expectancy;
-    return expectancy;
+    return expectancy.toFixed(1) + " years left on Earth";
   }
 
   marsLifeExpectancy() {
     let marsExpectancy = this.expectancy * 1.88;
-    return marsExpectancy + " years left on Mars";
+    return marsExpectancy.toFixed(1) + " years left on Mars";
   }
   jupiterLifeExpectancy () {
     let jupiterExpectancy = this.expectancy * 11.86;
-    return jupiterExpectancy + " years left on Jupiter";
+    return jupiterExpectancy.toFixed(1) + " years left on Jupiter";
   }
   venusLifeExpectancy() {
     let venusExpectancy = this.expectancy * 62;
-    return venusExpectancy + " years left on Venus";
+    return venusExpectancy.toFixed(1) + " years left on Venus";
   }
   mercuryLifeExpectancy() {
     let mercuryExpectancy = this.expectancy * 24;
-    return mercuryExpectancy + " years left on Mercury";
+    return mercuryExpectancy.toFixed(1) + " years left on Mercury";
   }
 }
 

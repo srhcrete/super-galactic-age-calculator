@@ -17,20 +17,21 @@ $(document).ready(function() {
     let ageMars = human.ageMars();
     let ageJupiter = human.ageJupiter();
     let lifeExpectancy = human.lifeExpectancy();
-    console.log(lifeExpectancy);
-    // let marsExpectancy = human.marsLifeExpectancy();
-    // let mercuryExpectancy = human.mercuryLifeExpectancy();
-    // let venusExpectancy = human.venusLifeExpectancy();
-    // let jupiterExpectancy = human.jupiterLifeExpectancy();
+    let marsExpectancy = human.marsLifeExpectancy();
+    let mercuryExpectancy = human.mercuryLifeExpectancy();
+    let venusExpectancy = human.venusLifeExpectancy();
+    let jupiterExpectancy = human.jupiterLifeExpectancy();
     galacticAgeArr.push(ageSeconds, ageMercury, ageVenus, ageMars, ageJupiter);
-    expectancyArr.push(lifeExpectancy);
-    console.log(galacticAgeArr);
-    console.log(expectancyArr);
+    expectancyArr.push(lifeExpectancy, marsExpectancy, mercuryExpectancy, venusExpectancy, jupiterExpectancy);
     galacticAgeArr.forEach(function(stat) {
       $('#galactic-age').append('<li>' + stat + '</li>');
     });
     expectancyArr.forEach(function(age) {
       $('#life-expectancy').append('<li>' + age +'</li>');
     });
+  });
+
+  $('birthday-form').submit(function() {
+
   });
 });
