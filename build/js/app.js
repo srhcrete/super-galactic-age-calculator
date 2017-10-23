@@ -4800,12 +4800,12 @@ $(document).ready(function () {
     var ageJupiter = human.ageJupiter();
     var lifeExpectancy = human.lifeExpectancy();
     console.log(lifeExpectancy);
-    var marsExpectancy = human.marsLifeExpectancy();
-    var mercuryExpectancy = human.mercuryLifeExpectancy();
-    var venusExpectancy = human.venusLifeExpectancy();
-    var jupiterExpectancy = human.jupiterLifeExpectancy();
+    // let marsExpectancy = human.marsLifeExpectancy();
+    // let mercuryExpectancy = human.mercuryLifeExpectancy();
+    // let venusExpectancy = human.venusLifeExpectancy();
+    // let jupiterExpectancy = human.jupiterLifeExpectancy();
     galacticAgeArr.push(ageSeconds, ageMercury, ageVenus, ageMars, ageJupiter);
-    expectancyArr.push(lifeExpectancy, marsExpectancy, mercuryExpectancy, venusExpectancy, jupiterExpectancy);
+    expectancyArr.push(lifeExpectancy);
     console.log(galacticAgeArr);
     console.log(expectancyArr);
     galacticAgeArr.forEach(function (stat) {
