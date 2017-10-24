@@ -4790,10 +4790,10 @@ $(document).ready(function () {
     galacticAgeArr.push(ageSeconds, ageMercury, ageVenus, ageMars, ageJupiter);
     expectancyArr.push(lifeExpectancy, marsExpectancy, mercuryExpectancy, venusExpectancy, jupiterExpectancy);
     galacticAgeArr.forEach(function (stat) {
-      $('#galactic-age').append('<li>' + stat + '</li>');
+      $('#galactic-age').append('<li>' + stat + '</li>').show();
     });
     expectancyArr.forEach(function (age) {
-      $('#life-expectancy').append('<li>' + age + '</li>');
+      $('#life-expectancy').append('<li>' + age + '</li>').show();
     });
   });
 
@@ -4820,12 +4820,12 @@ $(document).ready(function () {
     dogYearsArr.push(dogYears, mercuryDogYears, venusDogYears, marsDogYears, jupiterDogYears);
     console.log(birthdayArr);
     console.log(dogYearsArr);
-    $('#age-in-years').append('<li>You were born ' + ageInYears + '</li>');
+    $('#age-in-years').append('<li>You were born ' + ageInYears + '</li>').show();
     birthdayArr.forEach(function (birthday) {
-      $('#galactic-birthday').append('<li>' + birthday + '</li>');
+      $('#galactic-birthday').append('<li>' + birthday + '</li>').show();
     });
     dogYearsArr.forEach(function (age) {
-      $('#dog-years').append('<li>' + age + '</li>');
+      $('#dog-years').append('<li>' + age + '</li>').show();
     });
   });
 
@@ -4843,7 +4843,7 @@ $(document).ready(function () {
     compareArr.push(comparedays, comparehours, compareminutes, compareseconds);
     console.log(compareArr);
     compareArr.forEach(function (compare) {
-      $('#compare-dates').append('<li>' + compare + '</li>');
+      $('#compare-dates').append('<li>' + compare + '</li>').show();
     });
   });
 });
