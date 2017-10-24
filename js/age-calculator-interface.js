@@ -62,4 +62,22 @@ $(document).ready(function() {
       $('#dog-years').append('<li>' + age + '</li>');
     });
   });
+
+  $('#compare-form').submit(function() {
+    event.preventDefault();
+    let compareArr = [];
+    let date1 = $('#date1').val();
+    let date2 = $('#date2').val();
+    let compare = new Compare(date1, date2);
+    console.log(compare);
+    let comparedays = compare.compareDays();
+    let comparehours = compare.compareHours();
+    let compareminutes = compare.compareMinutes();
+    let compareseconds = compare.compareSeconds();
+    compareArr.push(comparedays, comparehours, compareminutes, compareseconds);
+    console.log(compareArr);
+    compareArr.forEach(function(compare) {
+      $('#compare-dates').append('<li>' + compare + '</li>');
+    });
+  });
 });

@@ -4828,6 +4828,24 @@ $(document).ready(function () {
       $('#dog-years').append('<li>' + age + '</li>');
     });
   });
+
+  $('#compare-form').submit(function () {
+    event.preventDefault();
+    var compareArr = [];
+    var date1 = $('#date1').val();
+    var date2 = $('#date2').val();
+    var compare = new _ageCalculator.Compare(date1, date2);
+    console.log(compare);
+    var comparedays = compare.compareDays();
+    var comparehours = compare.compareHours();
+    var compareminutes = compare.compareMinutes();
+    var compareseconds = compare.compareSeconds();
+    compareArr.push(comparedays, comparehours, compareminutes, compareseconds);
+    console.log(compareArr);
+    compareArr.forEach(function (compare) {
+      $('#compare-dates').append('<li>' + compare + '</li>');
+    });
+  });
 });
 
 },{"./../js/age-calculator.js":1}]},{},[3]);
